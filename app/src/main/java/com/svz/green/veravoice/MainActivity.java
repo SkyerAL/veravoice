@@ -1,15 +1,12 @@
 package com.svz.green.veravoice;
 
-import android.graphics.Color;
 import android.media.AudioManager;
-import android.media.ToneGenerator;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -330,8 +327,10 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
             }
 
             mRecognizer.startListening(COMMAND_SEARCH);
+            post(1000, mStopRecognitionCallback);// пытаемся ограничить флуд
         }
     }
+
 
     private synchronized void startRecognition() {
 //        if (mRecognizer == null || COMMAND_SEARCH.equals(mRecognizer.getSearchName())) return;
