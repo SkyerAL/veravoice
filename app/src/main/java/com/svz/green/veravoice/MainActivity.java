@@ -71,7 +71,8 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                 mSpeechQueue.poll();
                 if (mSpeechQueue.isEmpty()) {
 //                    mRecognizer.startListening(KWS_SEARCH);
-                    mRecognizer.startListening(COMMAND_SEARCH);
+//                    mRecognizer.startListening(COMMAND_SEARCH);
+                    startRecognition();
                 }
             }
         }
@@ -215,7 +216,8 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 
         mRecognizer.addListener(this);
 //        mRecognizer.startListening(KWS_SEARCH);
-        mRecognizer.startListening(COMMAND_SEARCH);
+//        mRecognizer.startListening(COMMAND_SEARCH);
+        startRecognition();
     }
 
     private void onRecognizerSetupError(Exception ex) {
@@ -292,7 +294,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                 // TODO: states
                 String answer = null;
 
-                if (text.equals(getString(R.string.command_activate_1)) || text.equals(getString(R.string.command_activate_2)) || text.equals(getString(R.string.command_activate_3))) {
+                if (text.equals(getString(R.string.command_activate_1)) || text.equals(getString(R.string.command_activate_2))) {
                     if (Model.setState(ModelState.ACTIVATE)) {
                         answer = getString(R.string.answer_activate);
                     }
@@ -326,25 +328,30 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                 }
             }
 
-            mRecognizer.startListening(COMMAND_SEARCH);
-            post(1000, mStopRecognitionCallback);// пытаемся ограничить флуд
+
+//            mRecognizer.startListening(COMMAND_SEARCH);
+            startRecognition();
         }
     }
 
 
     private synchronized void startRecognition() {
-//        if (mRecognizer == null || COMMAND_SEARCH.equals(mRecognizer.getSearchName())) return;
+////        if (mRecognizer == null || COMMAND_SEARCH.equals(mRecognizer.getSearchName())) return;
+//        if (mRecognizer == null) return;
+//        mRecognizer.cancel();
+//        //new ToneGenerator(AudioManager.STREAM_MUSIC, ToneGenerator.MAX_VOLUME).startTone(ToneGenerator.TONE_CDMA_PIP, 200);
+//        setCurrentCommand(getString(R.string.ready_for_command));
+
+
         if (mRecognizer == null) return;
         mRecognizer.cancel();
-        //new ToneGenerator(AudioManager.STREAM_MUSIC, ToneGenerator.MAX_VOLUME).startTone(ToneGenerator.TONE_CDMA_PIP, 200);
-        setCurrentCommand(getString(R.string.ready_for_command));
-        post(400, new Runnable() {
-            @Override
-            public void run() {
+//        post(400, new Runnable() {
+//            @Override
+//            public void run(){
                 mRecognizer.startListening(COMMAND_SEARCH);
                 post(1000, mStopRecognitionCallback);
-            }
-        });
+//            }
+//        });
     }
 
     private synchronized void stopRecognition() {

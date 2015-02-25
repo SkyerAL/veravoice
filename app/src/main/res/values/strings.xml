@@ -18,7 +18,6 @@
 
     <string name="command_activate_1">поехали</string>
     <string name="command_activate_2">окей связной</string>
-    <string name="command_activate_3">поехали</string>
 
     <string name="command_start_1">подбор</string>
     <string name="command_start_2">подбор начать</string>
@@ -31,7 +30,7 @@
     <string name="command_repeat_2">ещё раз</string>
     <string name="command_repeat_3">не понял</string>
 
-    <string name="command_stop_1">подбор завершить</string>
+    <string name="command_stop_1">завершить</string>
     <string name="command_stop_2">стоп</string>
 
     <string name="answer_activate">Начинаем работу</string>
