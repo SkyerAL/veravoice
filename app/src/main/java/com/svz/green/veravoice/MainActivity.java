@@ -284,6 +284,8 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 //            int score = hypothesis.getBestScore();
 //            Toast.makeText(this, "Score: " + score, Toast.LENGTH_SHORT).show();
 //        }
+        mRecognizer.stop();
+        mRecognizer.cancel();
 
         String text = hypothesis != null ? hypothesis.getHypstr() : null;
 

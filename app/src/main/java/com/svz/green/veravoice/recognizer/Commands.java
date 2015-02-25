@@ -25,7 +25,7 @@ public class Commands {
 
         commands.add(new Command(activity.getString(R.string.command_activate_1)));
         commands.add(new Command(activity.getString(R.string.command_activate_2)));
-        commands.add(new Command(activity.getString(R.string.command_activate_3)));
+        //commands.add(new Command(activity.getString(R.string.command_activate_3)));
 
         commands.add(new Command(activity.getString(R.string.command_start_1)));
         commands.add(new Command(activity.getString(R.string.command_start_2)));
