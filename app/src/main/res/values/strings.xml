@@ -17,18 +17,18 @@
     <string name="command_yellow">жёлтый</string>
 
     <string name="command_activate_1">поехали</string>
-    <string name="command_activate_2">окей связной</string>
+    <string name="command_activate_2">окейсвязной</string>
 
     <string name="command_start_1">подбор</string>
-    <string name="command_start_2">подбор начать</string>
+    <string name="command_start_2">подборначать</string>
 
     <string name="command_confirm_1">готово</string>
     <string name="command_confirm_2">следующий</string>
     <string name="command_confirm_3">дальше</string>
 
     <string name="command_repeat_1">повтори</string>
-    <string name="command_repeat_2">ещё раз</string>
-    <string name="command_repeat_3">не понял</string>
+    <string name="command_repeat_2">ещёраз</string>
+    <string name="command_repeat_3">непонял</string>
 
     <string name="command_stop_1">завершить</string>
     <string name="command_stop_2">стоп</string>
