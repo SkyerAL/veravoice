@@ -3,9 +3,9 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'Sk'
+            keyAlias 'skyeral'
             keyPassword '1607498'
-            storeFile file('/Users/duyunovas/DEV/key_test_android.jks')
+            storeFile file('C:/Users/aduyunov/Desktop/SSH/android/keystore.jsk')
             storePassword '1607498'
         }
     }
@@ -21,11 +21,11 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
         }
         debug {
-            signingConfig signingConfigs.config
+            debuggable true
         }
     }
     productFlavors {
@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile files('libs/pocketsphinx-android-0.8-nolib.jar')
     compile 'commons-io:commons-io:2.0.1'

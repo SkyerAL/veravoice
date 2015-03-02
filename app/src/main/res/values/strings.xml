@@ -24,11 +24,11 @@
 
     <string name="command_confirm_1">готово</string>
     <string name="command_confirm_2">следующий</string>
-    <string name="command_confirm_3">дальше</string>
+    <string name="command_confirm_3">следующий</string>//дальше
 
     <string name="command_repeat_1">повтори</string>
     <string name="command_repeat_2">ещёраз</string>
-    <string name="command_repeat_3">непонял</string>
+    <string name="command_repeat_3">ещёраз</string>//
 
     <string name="command_stop_1">завершить</string>
     <string name="command_stop_2">стоп</string>

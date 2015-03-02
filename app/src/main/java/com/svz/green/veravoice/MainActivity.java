@@ -71,7 +71,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                 mSpeechQueue.poll();
                 if (mSpeechQueue.isEmpty()) {
 //                    mRecognizer.startListening(KWS_SEARCH);
-//                    mRecognizer.startListening(COMMAND_SEARCH);
+                    mRecognizer.startListening(COMMAND_SEARCH);
                     startRecognition();
                 }
             }
@@ -107,6 +107,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                     Toast.makeText(instance, "Статус загрузки локали = " + result, Toast.LENGTH_SHORT).show();
                 }
                 mTextToSpeech.setOnUtteranceCompletedListener(mUtteranceCompletedListener);
+                //mTextToSpeech.setOnUtteranceProgressListener(mUtteranceCompletedListener);
             }
         });
 
@@ -188,7 +189,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                             .setAcousticModel(hmmDir)
                             .setSampleRate(8000)
                             .setDictionary(dict)
-                            .setBoolean("-remove_noise", false)
+                            .setBoolean("-remove_noise", false)// шумодав в true по дефолту
                             .setKeywordThreshold(1e-7f)
                             .getRecognizer();
                     mRecognizer.addKeyphraseSearch(KWS_SEARCH, hotword);
@@ -278,12 +279,12 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 
     @Override
     public void onResult(Hypothesis hypothesis) {
-        //mHandler.removeCallbacks(mStopRecognitionCallback);
+        mHandler.removeCallbacks(mStopRecognitionCallback);
 
-//        if (hypothesis != null) {
-//            int score = hypothesis.getBestScore();
-//            Toast.makeText(this, "Score: " + score, Toast.LENGTH_SHORT).show();
-//        }
+        if (hypothesis != null) {
+            int score = hypothesis.getBestScore();
+            Toast.makeText(this, "Score: " + score, Toast.LENGTH_SHORT).show();
+        }
 
 //        mRecognizer.stop();
 //        mRecognizer.cancel();
@@ -348,13 +349,13 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 
         if (mRecognizer == null) return;
         mRecognizer.cancel();
-//        post(400, new Runnable() {
-//            @Override
-//            public void run(){
+        post(400, new Runnable() {
+            @Override
+            public void run(){
                 mRecognizer.startListening(COMMAND_SEARCH);
                 post(1000, mStopRecognitionCallback);
-//            }
-//        });
+            }
+        });
     }
 
     private synchronized void stopRecognition() {
