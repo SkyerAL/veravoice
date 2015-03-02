@@ -53,6 +53,9 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 
     private Commands commands;
 
+    //TODO переменные
+    private int maxScore = Integer.MIN_VALUE;
+
     ///
     /// Листенеры
     ///
@@ -189,7 +192,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                             .setAcousticModel(hmmDir)
                             .setSampleRate(8000)
                             .setDictionary(dict)
-                            .setBoolean("-remove_noise", false)// шумодав в true по дефолту
+                           // .setBoolean("-remove_noise", false)// шумодав в true по дефолту
                             .setKeywordThreshold(1e-7f)
                             .getRecognizer();
                     mRecognizer.addKeyphraseSearch(KWS_SEARCH, hotword);
@@ -267,7 +270,31 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 
     @Override
     public void onPartialResult(Hypothesis hypothesis) {
+
         if (hypothesis == null) return;
+
+        int score = hypothesis.getBestScore();
+        String text = hypothesis.getHypstr();
+
+        maxScore =  maxScore>score ? maxScore : score;
+
+
+        commandTextView.setText(text +" ***** MAX " + maxScore + " ***** Score: " + score);
+
+        if (maxScore>-3000) {
+            if (score < -3000) {
+                Toast.makeText(this, text + " ***** Score: " + score, Toast.LENGTH_SHORT).show();
+
+                maxScore = Integer.MIN_VALUE;
+                stopRecognition();
+            }
+        }
+        else{
+            maxScore = Integer.MIN_VALUE;
+            stopRecognition();
+        }
+
+
 
 //        String text = hypothesis.getHypstr();
 //        if (KWS_SEARCH.equals(mRecognizer.getSearchName())) {
@@ -280,7 +307,9 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
     @Override
     public void onResult(Hypothesis hypothesis) {
 
-        mHandler.removeCallbacks(mStopRecognitionCallback);
+
+/*        mHandler.removeCallbacks(mStopRecognitionCallback);
+
         // TODO: проверка
        String text=null;
        int score=0;
@@ -341,7 +370,9 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 //            mRecognizer.startListening(COMMAND_SEARCH);
 
         }
+*/
         startRecognition();
+
     }
 
 
@@ -352,8 +383,8 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 //        //new ToneGenerator(AudioManager.STREAM_MUSIC, ToneGenerator.MAX_VOLUME).startTone(ToneGenerator.TONE_CDMA_PIP, 200);
 //        setCurrentCommand(getString(R.string.ready_for_command));
 
-
-        if (mRecognizer == null) return;
+        mRecognizer.startListening(COMMAND_SEARCH);
+/*        if (mRecognizer == null) return;
         mRecognizer.cancel();
         post(400, new Runnable() {
             @Override
@@ -361,7 +392,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                 mRecognizer.startListening(COMMAND_SEARCH);
                 post(1000, mStopRecognitionCallback);
             }
-        });
+        });*/
     }
 
     private synchronized void stopRecognition() {
