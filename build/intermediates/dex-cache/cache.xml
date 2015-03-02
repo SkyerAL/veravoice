@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Projects\veravoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Projects\veravoice\app\build\intermediates\pre-dexed\release\classes-10c716e58a2b32f30f6c02fc2ba21358e1a0f3be.jar" />
+    </item>
+    <item
+        jar="C:\Users\aduyunov\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Projects\veravoice\app\build\intermediates\pre-dexed\release\support-annotations-21.0.3-2a5c8c5b680ee88f60caac942f48379d2ff139cb.jar" />
+    </item>
+    <item
+        jar="C:\Projects\veravoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Projects\veravoice\app\build\intermediates\pre-dexed\release\classes-e0d342e0d4f27a30332700f8c22b708729d085c5.jar" />
+    </item>
+    <item
+        jar="C:\Projects\veravoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Projects\veravoice\app\build\intermediates\pre-dexed\release\internal_impl-21.0.3-cd098c96b607e114ac8dcf7639ba585254d39a07.jar" />
+    </item>
+    <item
+        jar="C:\Users\aduyunov\.gradle\caches\modules-2\files-2.1\commons-io\commons-io\2.0.1\7ffdb02f95af1c1a208544e076cea5b8e66e731a\commons-io-2.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7ffdb02f95af1c1a208544e076cea5b8e66e731a">
+        <dex dex="C:\Projects\veravoice\app\build\intermediates\pre-dexed\release\commons-io-2.0.1-80db06555efece6acecd84296d1397f213b4c06f.jar" />
+    </item>
+    <item
+        jar="C:\Projects\veravoice\app\libs\pocketsphinx-android-0.8-nolib.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="79e72ad97c6001aa89f3a250970615d92eb05fb8">
+        <dex dex="C:\Projects\veravoice\app\build\intermediates\pre-dexed\release\pocketsphinx-android-0.8-nolib-ca29d859828ffce53a89369ea1cf1b06c6de4519.jar" />
+    </item>
+
+</items>
