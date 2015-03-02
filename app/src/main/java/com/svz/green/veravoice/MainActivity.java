@@ -279,21 +279,26 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 
     @Override
     public void onResult(Hypothesis hypothesis) {
+
         mHandler.removeCallbacks(mStopRecognitionCallback);
+        // TODO: проверка
+       String text=null;
+       int score=0;
 
         if (hypothesis != null) {
-            int score = hypothesis.getBestScore();
-            Toast.makeText(this, "Score: " + score, Toast.LENGTH_SHORT).show();
+           score = hypothesis.getBestScore();
+           text = hypothesis.getHypstr();
+           Toast.makeText(this, text + " ***** Score: " + score, Toast.LENGTH_SHORT).show();
         }
 
 //        mRecognizer.stop();
 //        mRecognizer.cancel();
 
-        String text = hypothesis != null ? hypothesis.getHypstr() : null;
-
-        if (COMMAND_SEARCH.equals(mRecognizer.getSearchName())) {
+        if (score<-3000 && COMMAND_SEARCH.equals(mRecognizer.getSearchName())) {
             if (text != null) {
-                Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+//              Toast.makeText(this, "Score: " + score, Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(this, text + " ***** Score: " + score, Toast.LENGTH_SHORT).show();
 
                 // TODO: states
                 String answer = null;
@@ -334,8 +339,9 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 
 
 //            mRecognizer.startListening(COMMAND_SEARCH);
-            startRecognition();
+
         }
+        startRecognition();
     }
 
 
@@ -391,7 +397,8 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
     private void setCurrentCommand(String command) {
         if (commandTextView != null) {
             if (command != null && !command.isEmpty()) {
-                commandTextView.setText("" + command);
+                commandTextView.setText("" + command +
+                                        " - (" + Model.getState()+")");
             } else {
                 commandTextView.setText(R.string.command_undefined);
             }
