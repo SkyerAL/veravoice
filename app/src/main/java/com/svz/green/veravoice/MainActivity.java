@@ -177,7 +177,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                         names[i] = commandsList.get(i).getText();
                     }
 
-                    PhonMapper phonMapper = new PhonMapper(getAssets().open("model/ru/dict/dict_svz"));
+                    PhonMapper phonMapper = new PhonMapper(getAssets().open("model/ru/dict/dict_svz.dic"));
                     Grammar grammar = new Grammar(names, phonMapper);
                     grammar.addWords(hotword);
                     DataFiles dataFiles = new DataFiles(getPackageName(), "ru");
