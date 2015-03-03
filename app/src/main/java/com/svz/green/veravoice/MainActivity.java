@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.svz.green.veravoice.model.Model;
-import com.svz.green.veravoice.model.ModelState;
 import com.svz.green.veravoice.recognizer.Command;
 import com.svz.green.veravoice.recognizer.Commands;
 import com.svz.green.veravoice.recognizer.DataFiles;
@@ -178,7 +177,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                         names[i] = commandsList.get(i).getText();
                     }
 
-                    PhonMapper phonMapper = new PhonMapper(getAssets().open("dict/ru/hotwords"));
+                    PhonMapper phonMapper = new PhonMapper(getAssets().open("model/ru/dict/dict_svz"));
                     Grammar grammar = new Grammar(names, phonMapper);
                     grammar.addWords(hotword);
                     DataFiles dataFiles = new DataFiles(getPackageName(), "ru");
@@ -229,11 +228,11 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
     }
 
     private void copyAssets(File baseDir) throws IOException {
-        String[] files = getAssets().list("hmm/ru");
+        String[] files = getAssets().list("model/ru/dict/ru");
 
         for (String fromFile : files) {
             File toFile = new File(baseDir.getAbsolutePath() + "/" + fromFile);
-            InputStream in = getAssets().open("hmm/ru/" + fromFile);
+            InputStream in = getAssets().open("model/ru/dict/ru/" + fromFile);
             FileUtils.copyInputStreamToFile(in, toFile);
         }
     }

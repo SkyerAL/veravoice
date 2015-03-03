@@ -29,7 +29,7 @@ public class DataFiles {
     public DataFiles(String packageName, String lang, int sampleRate) {
         String baseDirAsString = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/" + packageName + "/" + lang + "/" + VERSION;
 
-        mFileHmm = new File(baseDirAsString +"/hmm/" + sampleRate);
+        mFileHmm = new File(baseDirAsString + "/model/ru/hmm/" + sampleRate);
         mFileJsgf = new File(baseDirAsString + "/lm/" + "lm.jsgf");
         mFileDict = new File(baseDirAsString + "/lm/" + "lm.dic");
         mFileLog = new File(baseDirAsString + "/pocketsphinx.log");
