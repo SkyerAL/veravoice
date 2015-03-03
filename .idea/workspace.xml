@@ -18,9 +18,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a70265e8-4ade-4e19-91f5-265e8691d015" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Projects\veravoice\app\src\main\assets\model\ru\dict\dict_svz" afterPath="$PROJECT_DIR$/app/src/main/assets/model/ru/dict/dict_svz.dic" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/svz/green/veravoice/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/svz/green/veravoice/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/assets/model/ru/grammar/podbor_oper.gram" afterPath="$PROJECT_DIR$/app/src/main/assets/model/ru/grammar/podbor_oper.gram" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VeraVoice.iws" />
@@ -1497,7 +1494,11 @@
       <created>1425383700198</created>
       <updated>1425383700198</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="добавляю грамматику 2">
+      <created>1425388007868</created>
+      <updated>1425388007868</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1603,7 +1604,8 @@
     <MESSAGE value="добавил вывод score" />
     <MESSAGE value="тест распознавания" />
     <MESSAGE value="добавляю грамматику" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавляю грамматику" />
+    <MESSAGE value="добавляю грамматику 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавляю грамматику 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
