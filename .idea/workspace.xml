@@ -17,7 +17,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.svz.green.veravoice" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a70265e8-4ade-4e19-91f5-265e8691d015" name="Default" comment="">
+    <list default="true" id="a70265e8-4ade-4e19-91f5-265e8691d015" name="Default" comment="добавляю грамматику 3">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VeraVoice.iws" />
@@ -1498,7 +1498,11 @@
       <created>1425388007868</created>
       <updated>1425388007868</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="добавляю грамматику 3">
+      <created>1425388031268</created>
+      <updated>1425388031268</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1605,7 +1609,8 @@
     <MESSAGE value="тест распознавания" />
     <MESSAGE value="добавляю грамматику" />
     <MESSAGE value="добавляю грамматику 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавляю грамматику 2" />
+    <MESSAGE value="добавляю грамматику 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавляю грамматику 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
