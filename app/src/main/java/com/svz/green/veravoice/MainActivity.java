@@ -180,7 +180,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 
                     PhonMapper phonMapper = new PhonMapper(getAssets().open("dict/ru/hotwords"));
                     Grammar grammar = new Grammar(names, phonMapper);
-                    grammar.addWords(hotword);
+                    //grammar.addWords(hotword);
                     DataFiles dataFiles = new DataFiles(getPackageName(), "ru");
                     File hmmDir = new File(dataFiles.getHmm());
                     File dict = new File(dataFiles.getDict());
@@ -194,6 +194,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                             .setDictionary(dict)
                            // .setBoolean("-remove_noise", false)// шумодав в true по дефолту
                             .setKeywordThreshold(1e-7f)
+                            //.setKeywordThreshold(1e-20f)
                             .getRecognizer();
                     mRecognizer.addKeyphraseSearch(KWS_SEARCH, hotword);
                     mRecognizer.addGrammarSearch(COMMAND_SEARCH, jsgf);
