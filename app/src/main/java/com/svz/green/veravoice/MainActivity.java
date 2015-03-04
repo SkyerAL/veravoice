@@ -193,7 +193,8 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                             .setSampleRate(8000)
                             .setDictionary(dict)
                            // .setBoolean("-remove_noise", false)// шумодав в true по дефолту
-                            .setKeywordThreshold(1e-7f)
+                           //.setKeywordThreshold(1e-7f)
+                            .setKeywordThreshold(1e-20f)
                             .getRecognizer();
                     mRecognizer.addKeyphraseSearch(KWS_SEARCH, hotword);
                     mRecognizer.addGrammarSearch(COMMAND_SEARCH, jsgf);
@@ -281,6 +282,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 
         commandTextView.setText(text +" ***** MAX " + maxScore + " ***** Score: " + score);
 
+/*
         if (maxScore>-3000) {
             if (score < -3000) {
                 Toast.makeText(this, text + " ***** Score: " + score, Toast.LENGTH_SHORT).show();
@@ -293,6 +295,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
             maxScore = Integer.MIN_VALUE;
             stopRecognition();
         }
+*/
 
 
 

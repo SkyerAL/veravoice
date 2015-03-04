@@ -15,7 +15,8 @@ public class Grammar {
 
         StringBuilder sb = new StringBuilder();
         sb.append("#JSGF V1.0;\ngrammar commands;\n");
-        sb.append("public <command> = <commands>+;\n");
+//        sb.append("public <command> = <commands>+;\n");
+        sb.append("public <command> = <commands>;\n");
         sb.append("<commands> = ");
 
         for (int i = 0; i < commands.length; i++) {
