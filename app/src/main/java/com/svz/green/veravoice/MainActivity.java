@@ -192,7 +192,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                             .setAcousticModel(hmmDir)
                             .setSampleRate(8000)
                             .setDictionary(dict)
-                           // .setBoolean("-remove_noise", false)// шумодав в true по дефолту
+                            .setBoolean("-remove_noise", false)// шумодав в true по дефолту
                            //.setKeywordThreshold(1e-7f)
                             .setKeywordThreshold(1e-20f)
                             .getRecognizer();
