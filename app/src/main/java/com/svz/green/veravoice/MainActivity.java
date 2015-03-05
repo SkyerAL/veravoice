@@ -192,8 +192,8 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                             .setAcousticModel(hmmDir)
                             .setSampleRate(8000)
                             .setDictionary(dict)
-                            .setBoolean("-remove_noise", false)// шумодав в true по дефолту
-                           //.setKeywordThreshold(1e-7f)
+                            //.setBoolean("-remove_noise", false)// шумодав в true по дефолту
+                            //.setKeywordThreshold(1e-7f)
                             .setKeywordThreshold(1e-20f)
                             .getRecognizer();
                     mRecognizer.addKeyphraseSearch(KWS_SEARCH, hotword);
@@ -387,6 +387,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 //        setCurrentCommand(getString(R.string.ready_for_command));
 
         mRecognizer.startListening(COMMAND_SEARCH);
+        post(1000, mStopRecognitionCallback);
 /*        if (mRecognizer == null) return;
         mRecognizer.cancel();
         post(400, new Runnable() {
