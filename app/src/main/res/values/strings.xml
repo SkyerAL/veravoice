@@ -5,7 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Настройки</string>
 
-    <string name="hotword">умник</string>
+    <string name="hotword">окейсвязной</string>
 
     <string name="ready">Готов</string>
     <string name="ready_for_command">Введите команду...</string>
@@ -17,7 +17,7 @@
     <string name="command_yellow">жёлтый</string>
 
     <string name="command_activate_1">поехали</string>
-    <string name="command_activate_2">окей связной</string>
+    <string name="command_activate_2">окейсвязной</string>
 
     <string name="command_start_1">подбор</string>
     <string name="command_start_2">подбор начать</string>
