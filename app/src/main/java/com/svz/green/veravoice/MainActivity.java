@@ -190,10 +190,10 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                     saveFile(dict, grammar.getDict());
                     mRecognizer = SpeechRecognizerSetup.defaultSetup()
                             .setAcousticModel(hmmDir)
-                            .setSampleRate(8000)
+                            //.setSampleRate(8000)
                             .setDictionary(dict)
-                            //.setBoolean("-remove_noise", false)// шумодав в true по дефолту
-                            //.setKeywordThreshold(1e-7f)
+                            .setBoolean("-remove_noise", false)// шумодав в true по дефолту
+                            //.setKeywordThreshold(1e-7f) // по умолчанию
                             .setKeywordThreshold(1e-20f)
                             .getRecognizer();
                     mRecognizer.addKeyphraseSearch(KWS_SEARCH, hotword);
