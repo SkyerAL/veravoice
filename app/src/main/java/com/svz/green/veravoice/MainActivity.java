@@ -274,13 +274,12 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 
         if (hypothesis == null) return;
 
+/*
         int score = hypothesis.getBestScore();
         String text = hypothesis.getHypstr();
-
         maxScore =  maxScore>score ? maxScore : score;
-
-
         commandTextView.setText(text +" ***** MAX " + maxScore + " ***** Score: " + score);
+*/
 
 /*
         if (maxScore>-3000) {
@@ -311,7 +310,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
     public void onResult(Hypothesis hypothesis) {
 
 
-/*        mHandler.removeCallbacks(mStopRecognitionCallback);
+        mHandler.removeCallbacks(mStopRecognitionCallback);
 
         // TODO: проверка
        String text=null;
@@ -326,7 +325,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 //        mRecognizer.stop();
 //        mRecognizer.cancel();
 
-        if (score<-3000 && COMMAND_SEARCH.equals(mRecognizer.getSearchName())) {
+//        if (score<-3000 && COMMAND_SEARCH.equals(mRecognizer.getSearchName())) {
             if (text != null) {
 //              Toast.makeText(this, "Score: " + score, Toast.LENGTH_SHORT).show();
 
@@ -367,13 +366,13 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                 if (answer != null) {
                     process(answer);
                 }
-            }
+//            }
 
 
 //            mRecognizer.startListening(COMMAND_SEARCH);
 
         }
-*/
+
         startRecognition();
 
     }
@@ -386,17 +385,19 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 //        //new ToneGenerator(AudioManager.STREAM_MUSIC, ToneGenerator.MAX_VOLUME).startTone(ToneGenerator.TONE_CDMA_PIP, 200);
 //        setCurrentCommand(getString(R.string.ready_for_command));
 
+/*
         mRecognizer.startListening(COMMAND_SEARCH);
         post(1000, mStopRecognitionCallback);
-/*        if (mRecognizer == null) return;
+*/
+        if (mRecognizer == null) return;
         mRecognizer.cancel();
-        post(400, new Runnable() {
-            @Override
-            public void run(){
+//        post(400, new Runnable() {
+//            @Override
+//            public void run(){
                 mRecognizer.startListening(COMMAND_SEARCH);
                 post(1000, mStopRecognitionCallback);
-            }
-        });*/
+//            }
+//        });
     }
 
     private synchronized void stopRecognition() {
