@@ -166,7 +166,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
             protected Exception doInBackground(Void... params) {
                 try {
 
-                    if(!isSDCARDAvailable()) {
+                    if (!isSDCARDAvailable()) {
                         setCurrentCommand("Недоступен");
                     } else {
                         setCurrentCommand("Доступен");
@@ -190,10 +190,10 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
                     saveFile(dict, grammar.getDict());
                     mRecognizer = SpeechRecognizerSetup.defaultSetup()
                             .setAcousticModel(hmmDir)
-                            //.setSampleRate(8000)
+                                    //.setSampleRate(8000)
                             .setDictionary(dict)
                             .setBoolean("-remove_noise", false)// шумодав в true по дефолту
-                            //.setKeywordThreshold(1e-7f) // по умолчанию
+                                    //.setKeywordThreshold(1e-7f) // по умолчанию
                             .setKeywordThreshold(1e-20f)
                             .getRecognizer();
                     mRecognizer.addKeyphraseSearch(KWS_SEARCH, hotword);
@@ -247,8 +247,8 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
         FileUtils.writeStringToFile(f, content, "UTF8");
     }
 
-    public static boolean isSDCARDAvailable(){
-        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)? true :false;
+    public static boolean isSDCARDAvailable() {
+        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) ? true : false;
     }
 
     ///
@@ -297,7 +297,6 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 */
 
 
-
 //        String text = hypothesis.getHypstr();
 //        if (KWS_SEARCH.equals(mRecognizer.getSearchName())) {
 //            startRecognition();
@@ -313,67 +312,70 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
         mHandler.removeCallbacks(mStopRecognitionCallback);
 
         // TODO: проверка
-       String text=null;
-       int score=0;
+        String text = null;
+        int score = 0;
 
         if (hypothesis != null) {
-           score = hypothesis.getBestScore();
-           text = hypothesis.getHypstr();
-           Toast.makeText(this, text + " ***** Score: " + score, Toast.LENGTH_SHORT).show();
+            score = hypothesis.getBestScore();
+            text = hypothesis.getHypstr();
+            Toast.makeText(this, text + " ***** Score: " + score, Toast.LENGTH_SHORT).show();
         }
 
 //        mRecognizer.stop();
 //        mRecognizer.cancel();
 
 //        if (score<-3000 && COMMAND_SEARCH.equals(mRecognizer.getSearchName())) {
-            if (text != null) {
+        if (text != null) {
 //              Toast.makeText(this, "Score: " + score, Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(this, text + " ***** Score: " + score, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, text + " ***** Score: " + score, Toast.LENGTH_SHORT).show();
 
-                // TODO: states
-                String answer = null;
+            // TODO: states
+            String answer = null;
 
-                if (text.equals(getString(R.string.command_activate_1)) || text.equals(getString(R.string.command_activate_2))) {
-                    if (Model.setState(ModelState.ACTIVATE)) {
-                        answer = getString(R.string.answer_activate);
-                    }
-                } else if (text.equals(getString(R.string.command_start_1)) || text.equals(getString(R.string.command_start_2))) {
-                    if (Model.setState(ModelState.START)) {
-                        answer = getString(R.string.answer_start) + " " + getString(R.string.answer_article) + " " + Model.getData().getCurrent().getName();
-                    }
-                } else if (text.equals(getString(R.string.command_confirm_1)) || text.equals(getString(R.string.command_confirm_2)) || text.equals(getString(R.string.command_confirm_3))) {
-                    if (Model.getState() == ModelState.START) {
-                        if (Model.getData().getNext() != null) {
-                            answer = getString(R.string.answer_article) + " " + Model.getData().getCurrent().getName();
-                        } else {
-                            Model.setState(ModelState.STOP);
-                            answer = getString(R.string.answer_stop);
-                        }
-                    }
-                } else if (text.equals(getString(R.string.command_repeat_1)) || text.equals(getString(R.string.command_repeat_2)) || text.equals(getString(R.string.command_repeat_3))) {
-                    if (Model.getState() == ModelState.START) {
+            if (text.equals(getString(R.string.command_activate_1)) || text.equals(getString(R.string.command_activate_2))) {
+                if (Model.setState(ModelState.ACTIVATE)) {
+                    answer = getString(R.string.answer_activate);
+                }
+            } else if (text.equals(getString(R.string.command_start_1)) || text.equals(getString(R.string.command_start_2))) {
+                if (Model.setState(ModelState.START)) {
+                    answer = getString(R.string.answer_start) + " " + getString(R.string.answer_article) + " " + Model.getData().getCurrent().getName();
+                }
+            } else if (text.equals(getString(R.string.command_confirm_1)) || text.equals(getString(R.string.command_confirm_2)) || text.equals(getString(R.string.command_confirm_3))) {
+                if (Model.getState() == ModelState.START) {
+                    if (Model.getData().getNext() != null) {
                         answer = getString(R.string.answer_article) + " " + Model.getData().getCurrent().getName();
-                    }
-                } else if (text.equals(getString(R.string.command_stop_1)) || text.equals(getString(R.string.command_stop_2))) {
-                    if (Model.setState(ModelState.STOP)) {
+                    } else {
+                        Model.setState(ModelState.STOP);
                         answer = getString(R.string.answer_stop);
                     }
-                } else {
-                    //answer = getString(R.string.answer_undefined);
                 }
+            } else if (text.equals(getString(R.string.command_repeat_1)) || text.equals(getString(R.string.command_repeat_2)) || text.equals(getString(R.string.command_repeat_3))) {
+                if (Model.getState() == ModelState.START) {
+                    answer = getString(R.string.answer_article) + " " + Model.getData().getCurrent().getName();
+                }
+            } else if (text.equals(getString(R.string.command_stop_1)) || text.equals(getString(R.string.command_stop_2))) {
+                if (Model.setState(ModelState.STOP)) {
+                    answer = getString(R.string.answer_stop);
+                }
+            } else {
+                //answer = getString(R.string.answer_undefined);
+            }
 
-                if (answer != null) {
-                    process(answer);
-                }
+            if (answer != null) {
+                process(answer);
+            } else {
+                startRecognition();
+            }
 //            }
 
 
 //            mRecognizer.startListening(COMMAND_SEARCH);
 
+        }else{
+            startRecognition();
         }
 
-        startRecognition();
 
     }
 
@@ -394,8 +396,8 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
 //        post(400, new Runnable() {
 //            @Override
 //            public void run(){
-                mRecognizer.startListening(COMMAND_SEARCH);
-                post(1000, mStopRecognitionCallback);
+        mRecognizer.startListening(COMMAND_SEARCH);
+        post(1000, mStopRecognitionCallback);
 //            }
 //        });
     }
@@ -434,7 +436,7 @@ public class MainActivity extends ActionBarActivity implements RecognitionListen
         if (commandTextView != null) {
             if (command != null && !command.isEmpty()) {
                 commandTextView.setText("" + command +
-                                        " - (" + Model.getState()+")");
+                        " - (" + Model.getState() + ")");
             } else {
                 commandTextView.setText(R.string.command_undefined);
             }
